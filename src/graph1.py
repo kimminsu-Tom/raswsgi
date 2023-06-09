@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 def application(environ, start_response):
     if environ['PATH_INFO'] == '/graph.png':
         try:
-            with open('/graph.png', 'rb') as f:
+            with open('../graph.png', 'rb') as f:
                 response_body = f.read()
         except:
             response_body = ''
@@ -27,7 +27,7 @@ def application(environ, start_response):
             graph = plt.plot(x, y)
             plt.grid()
 
-            fig.savefig('/graph.png')
+            fig.savefig('.../graph.png')
 
         response_body = html
         start_response('200 OK', [
